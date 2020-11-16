@@ -1,0 +1,215 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;==========================================================
+ 
+[colors]
+background = #2b263a
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #575064
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+ 
+[bar/bar]
+width = 100%:-70
+height = 100
+fixed-center = true
+offset-x = 35
+offset-y = 35
+ 
+background = ${colors.background}
+foreground = ${colors.foreground}
+ 
+line-size = 0
+line-color = #f00
+ 
+padding-left = 4
+padding-right = 4
+ 
+module-margin-left = 2
+module-margin-right = 2
+ 
+font-0 = Fira Code:pixelsize=24;2
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;1
+font-2 = siji:pixelsize=10;1
+font-3 = Unifont Upper:style=Medium;1
+font-4 = Fira Code Nerd Font:pixelsize=10;1
+font-5 = "Font Awesome 4 Free:size=24;3"
+font-6 = "Font Awesome 4 Free:style=Solid:size=24;1"
+font-7 = "Font Awesome 4 Brands:size=24;1"
+font-8 = FontAwesome:size=24;1
+ 
+modules-left = battery temperature unread_mail
+modules-center = bspwm
+modules-right = eth pulseaudio date
+ 
+;tray-position = right
+;tray-padding = 2
+ 
+wm-restack = bspwm
+ 
+cursor-click = pointer
+cursor-scroll = ns-resize
+ 
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+ 
+[module/bspwm]
+type = internal/bspwm
+ 
+label-focused = X
+label-focused-padding = 2
+ 
+label-occupied = O
+label-occupied-padding = 2
+ 
+label-urgent = U
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+ 
+label-empty = E
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+ 
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+ 
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+ 
+format-disconnected =
+ 
+ramp-signal-0 = 直
+ramp-signal-1 = 直
+ramp-signal-2 = 直
+ramp-signal-3 = 直
+ramp-signal-4 = 直
+ramp-signal-foreground = ${colors.foreground-alt}
+ 
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 3.0
+ 
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+ 
+format-disconnected =
+ 
+[module/date]
+type = internal/date
+interval = 5
+ 
+date =
+date-alt = " %Y-%m-%d"
+ 
+time = %H:%M
+time-alt = %H:%M:%S
+ 
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+ 
+label = %date% %time%
+ 
+[module/pulseaudio]
+type = internal/pulseaudio
+ 
+label-volume = %{F#666} %{F-} %percentage%%
+label-volume-foreground = ${root.foreground}
+ 
+label-muted =   muted
+label-muted-foreground = #666
+ 
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+ 
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+ 
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+ 
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+ 
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+ 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+ 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+ 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+ 
+[module/temperature]
+type = internal/temperature
+thermal-zone = 8
+warn-temperature = 60
+ 
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+ 
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+ 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+ 
+[settings]
+screenchange-reload = true
+ 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+ 

@@ -1,0 +1,7 @@
+configuration  {
+	width: 1000;
+	lines: 15;
+	columns: 1;
+	font: "Hack 12";
+	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+}
