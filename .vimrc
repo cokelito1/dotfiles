@@ -1,1 +1,45 @@
-.vimrc
+set nocompatible
+filetype off
+
+syntax on
+set timeoutlen=200
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'mattn/emmet-vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'wellle/targets.vim'
+Plugin 'dylanaraps/wal.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+colorscheme wal
+
+set relativenumber
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='minimalist'
+
+let g:user_emmet_leader_key=','
+
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_warning_symbol = '**'
+let g:ycm_error_symbol = '->'
+
+nnoremap <C-f> :e . <CR>
+nnoremap <C-p> :bp <CR>
+nnoremap <C-n> :bn <CR>
+nnoremap <C-c> :bd <CR>
+nnoremap <C-q> :quit <CR>
+nnoremap <C-s> :split <CR>
+
+nnoremap <C-f><C-s> :YcmCompleter FixIt <CR>
+
+nnoremap gd :YcmCompleter GoToDefinition <CR>
