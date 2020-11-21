@@ -12,6 +12,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'wellle/targets.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'dylanaraps/wal.vim'
 
 call vundle#end()
@@ -19,6 +20,7 @@ filetype plugin indent on
 
 colorscheme wal
 
+set showcmd
 set relativenumber
 set tabstop=4
 set softtabstop=4
@@ -33,6 +35,8 @@ let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_warning_symbol = '**'
 let g:ycm_error_symbol = '->'
 
+let mapleader = "\<Space>"
+
 nnoremap <C-f> :e . <CR>
 nnoremap <C-p> :bp <CR>
 nnoremap <C-n> :bn <CR>
@@ -43,3 +47,5 @@ nnoremap <C-s> :split <CR>
 nnoremap <C-f><C-s> :YcmCompleter FixIt <CR>
 
 nnoremap gd :YcmCompleter GoToDefinition <CR>
+
+map <Leader> <Plug>(easymotion-prefix)
