@@ -16,6 +16,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -27,6 +28,7 @@ set relativenumber
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set spelllang=es
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='minimalist'
