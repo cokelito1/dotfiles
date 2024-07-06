@@ -83,3 +83,10 @@
 
 (after! latex
   (add-hook 'after-save-hook 'compile-tex-on-save))
+
+(use-package! xclip
+  :config
+  (setq xclip-program "wl-copy")
+  (setq xclip-select-enable-clipboard t)
+  (setq xclip-mode t)
+  (setq xclip-method 'wl-copy))
